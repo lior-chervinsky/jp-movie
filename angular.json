@@ -136,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "movie-color-list"
+  "defaultProject": "movie-color-list",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }
