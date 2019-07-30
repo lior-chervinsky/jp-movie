@@ -1,0 +1,11 @@
+.list-item--box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px double grey;
+  margin: 10px;
+}
+
+.list-item--item{
+  padding: 5px;
+}

@@ -1,0 +1,20 @@
+.movies-list--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  //justify-content: space-between;
+}
+.movies-list--item {
+  width: 500px;
+}
+.movie-list--inputs {
+  display: flex;
+
+  app-color-patch {
+    flex-grow: 10;
+    margin-right: 10px;
+  }
+
+  button {
+    flex-grow: 1;
+  }
+}

@@ -1,0 +1,13 @@
+<div class="movie-list--inputs">
+  <app-color-patch [color]="masterColor$ | async" (click)="changeMasterColor()"></app-color-patch>
+  <button> Add Movie </button>
+</div>
+
+
+<br>
+<div class="movies-list--wrapper">
+  <app-list-item class="movies-list--item" *ngFor="let movie of movieList$ | async; trackBy: trackByFn"
+                 [movieItem]="movie"
+                 (click)="changeItemColor(movie)">
+  </app-list-item>
+</div>
