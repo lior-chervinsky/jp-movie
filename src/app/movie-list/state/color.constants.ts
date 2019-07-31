@@ -1,4 +1,7 @@
 export const BACKGROUND_COLORS = [
   'LightSkyBlue',
-  'LightGreen'
+  'LightGreen',
+  'LightPink',
+  'LightSlateGray',
+  'WhiteSmoke',
 ];

@@ -16,7 +16,7 @@
     <span>IMDB Link ?</span>
     <mat-form-field>
       <input matInput [(ngModel)]="data.link" formControlName="imdbLink">
-      <mat-hint>www.imdb.com/tt234324</mat-hint>
+      <mat-hint>www.imdb.com/title/tt0944947</mat-hint>
       <mat-error *ngIf="movieFormGroup.controls.imdbLink.hasError('pattern') && !movieFormGroup.hasError('required')">
         Please enter a valid http address
       </mat-error>
