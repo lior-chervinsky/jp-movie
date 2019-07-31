@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Add a Movie</h1>
+<form mat-dialog-content [formGroup]="movieFormGroup">
+  <!-- Movie Name -->
+  <p>
+    <span>Movie name ?</span>
+    <mat-form-field >
+      <input matInput [(ngModel)]="data.name" formControlName="name">
+<!--      <mat-hint>Movie Name is required</mat-hint>-->
+      <mat-error *ngIf="movieFormGroup.controls.name.hasError('required')">
+        Movie Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <!-- IMDB Link -->
+  <p>
+    <span>IMDB Link ?</span>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.link" formControlName="imdbLink">
+      <mat-hint>www.imdb.com/tt234324</mat-hint>
+      <mat-error *ngIf="movieFormGroup.controls.imdbLink.hasError('pattern') && !movieFormGroup.hasError('required')">
+        Please enter a valid http address
+      </mat-error>
+      <mat-error *ngIf="movieFormGroup.controls.imdbLink.hasError('required')">
+        IMDB Link is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+</form>
+
+<!-- Buttons -->
+<div mat-dialog-actions class="add-movie--buttons-row">
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-flat-button class="add-movie--button"
+          color="primary"
+          [disabled]="movieFormGroup.invalid"
+          [mat-dialog-close]="data" >Ok
+  </button>
+</div>

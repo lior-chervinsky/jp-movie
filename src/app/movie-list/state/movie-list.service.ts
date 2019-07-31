@@ -16,6 +16,10 @@ export class MovieListService {
   updateMasterColor(masterColor: string) {
     this.store.update({masterColor});
   }
+
+  deleteMovie(id: ID) {
+    this.store.remove(id);
+  }
 }
 
 export const movieListService = new MovieListService(movieListStore);

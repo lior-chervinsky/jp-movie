@@ -1,7 +1,7 @@
 import {ID, QueryEntity} from '@datorama/akita';
 import {MovieListState, MovieListStore, movieListStore} from './movie-list.store';
 import {combineLatest, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {filter, map} from 'rxjs/operators';
 
 export class MovieListQuery extends QueryEntity<MovieListState> {
 
@@ -10,7 +10,10 @@ export class MovieListQuery extends QueryEntity<MovieListState> {
   }
 
   selectItemColor(id: ID): Observable<string> {
-    const movieItemColor$ = this.selectEntity(id).pipe(map(movie => movie.color));
+    const movieItemColor$ = this.selectEntity(id).pipe(
+      filter(item => !!item),
+      map(movie => movie.color)
+    );
     const masterColor$ = this.store._select(store => store.masterColor);
 
     return combineLatest(movieItemColor$, masterColor$)

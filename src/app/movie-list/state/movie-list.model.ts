@@ -6,9 +6,3 @@ export interface MovieItem {
   imdbLink: string;
   color?: string;
 }
-
-export function createMovieList(params: Partial<MovieItem>) {
-  return {
-    ...params
-  } as MovieItem;
-}

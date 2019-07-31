@@ -2,10 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px double grey;
   margin: 10px;
+  max-width: 100%;
 }
 
 .list-item--item{
   padding: 5px;
+  max-width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  a {
+    font-size: 1.5em;
+  }
 }

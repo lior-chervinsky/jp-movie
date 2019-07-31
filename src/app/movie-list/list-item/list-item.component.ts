@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MovieItem} from '../state/movie-list.model';
 import {movieListQuery} from '../state/movie-list.query';
 import {Observable} from 'rxjs';
@@ -11,6 +11,8 @@ import {Observable} from 'rxjs';
 })
 export class ListItemComponent implements OnInit {
   @Input() movieItem: MovieItem;
+  @Output() deleteMovie = new EventEmitter();
+
   itemColor$: Observable<string>;
 
   constructor() { }
@@ -19,4 +21,7 @@ export class ListItemComponent implements OnInit {
     this.itemColor$ = movieListQuery.selectItemColor(this.movieItem.id);
   }
 
+  emitDeleteMovie() {
+    this.deleteMovie.emit();
+  }
 }

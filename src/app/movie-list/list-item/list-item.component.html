@@ -1,4 +1,15 @@
-<div class="list-item--box" [ngStyle]="{'background': itemColor$ | async}">
-  <div class="list-item--item">{{movieItem.name}}</div>
-  <div class="list-item--item">{{movieItem.imdbLink}}</div>
-</div>
+<div class="list-item--box"></div>
+
+<mat-card class="list-item--box" [ngStyle]="{'background': itemColor$ | async}">
+  <mat-card-content class="list-item--box">
+    <mat-card-title class="list-item--item mat-display-1">{{movieItem.name}}</mat-card-title>
+    <mat-card-content class="list-item--item mat-display-2">
+      <a [attr.href]="'//' + movieItem.imdbLink" rel="noopener" target="_blank">{{movieItem.imdbLink}}</a>
+    </mat-card-content>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button aria-label="Example icon-button with a heart icon">
+      <mat-icon (click)="emitDeleteMovie()">delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

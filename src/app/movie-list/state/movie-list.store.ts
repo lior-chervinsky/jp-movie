@@ -1,5 +1,6 @@
 import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
 import { MovieItem } from './movie-list.model';
+import {BACKGROUND_COLORS} from './color.constants';
 
 export interface MovieListState extends EntityState<MovieItem> {
   masterColor: string;
@@ -9,7 +10,7 @@ export interface MovieListState extends EntityState<MovieItem> {
 export class MovieListStore extends EntityStore<MovieListState> {
 
   constructor() {
-    super({baseColor: 'blue'});
+    super({masterColor: BACKGROUND_COLORS[1]});
   }
 
 }
